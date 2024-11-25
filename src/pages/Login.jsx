@@ -2,19 +2,26 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import useForm from '../hooks/useForm';
 import { Button, Form, Input, Title } from '../styles/authForm';
+import { login } from '../api/auth';
+import { tokenStorage } from '../modules/tokenStorage';
 
 const Login = () => {
   const { values, handleInputChange } = useForm('login');
+  const handleLoginClick = async (e) => {
+    e.preventDefault();
+    const user = await login(values);
+    tokenStorage.add(user.accessToken);
+  };
 
   return (
     <Wrap>
       <Title>로그인</Title>
       <Form>
         <Input
-          name={'username'}
+          name={'id'}
           type={'text'}
           onChange={handleInputChange}
-          value={values['username']}
+          value={values['id']}
           placeholder={'아이디'}
         ></Input>
         <Input
@@ -24,7 +31,7 @@ const Login = () => {
           value={values['password']}
           placeholder={'비밀번호'}
         ></Input>
-        <Button>로그인</Button>
+        <Button onClick={handleLoginClick}>로그인</Button>
       </Form>
       계정이 없으신가요? <Link to={'/signUp'}>회원가입</Link>
     </Wrap>

@@ -1,10 +1,10 @@
 export const initialFormStates = {
   login: {
-    username: '',
+    id: '',
     password: '',
   },
   signUp: {
-    username: '',
+    id: '',
     password: '',
     nickname: '',
   },
