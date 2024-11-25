@@ -7,8 +7,8 @@ const Layout = ({ children }) => {
     <Wrap>
       <Header>
         <Actions>
-          <Link>home</Link>
-          <Link>로그인</Link>
+          <Link to={'/'}>home</Link>
+          <Link to={'/login'}>로그인</Link>
         </Actions>
       </Header>
       <Main>{children}</Main>
@@ -19,7 +19,8 @@ const Layout = ({ children }) => {
 const Main = styled.div`
   display: flex;
   justify-content: center;
-`
+  width: 100%;
+`;
 
 const Actions = styled.div`
   display: flex;
@@ -45,6 +46,7 @@ const Wrap = styled.div`
   min-height: 100vh;
   margin: 0;
   background-color: #f5f3f3;
+  /* width: 100%; */
 `;
 
 export default Layout;
