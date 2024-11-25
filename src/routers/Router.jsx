@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import styled from 'styled-components';
 import Home from '../pages/Home';
+import Layout from '../components/Layout';
 
 const Router = () => {
   return (
@@ -14,12 +14,6 @@ const Router = () => {
   );
 };
 
-const Layout = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-`;
+
 
 export default Router;
