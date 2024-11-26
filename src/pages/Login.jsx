@@ -9,7 +9,7 @@ import useAuthUserStore from '../stores/useAuthUserStore';
 const Login = () => {
   const { values, handleInputChange } = useForm('login');
   const setAuthUser = useAuthUserStore((state) => state.setAuthUser);
-  const navigatge = useNavigate();
+  const navigate = useNavigate();
 
   const handleLoginClick = async (e) => {
     e.preventDefault();
@@ -17,7 +17,7 @@ const Login = () => {
     tokenStorage.add(user.accessToken);
     setAuthUser(user);
     // 강제로 이동 된 경우 원래 있던 페이지 기억 가능??
-    navigatge('/test');
+    navigate('/test');
   };
 
   return (
