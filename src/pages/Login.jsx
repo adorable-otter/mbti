@@ -1,16 +1,22 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import useForm from '../hooks/useForm';
 import { Button, Form, Input, Title } from '../styles/authForm';
 import { login } from '../api/auth';
 import { tokenStorage } from '../modules/tokenStorage';
+import useAuthUserStore from '../stores/useAuthUserStore';
 
 const Login = () => {
   const { values, handleInputChange } = useForm('login');
+  const setAuthUser = useAuthUserStore((state) => state.setAuthUser);
+  const navigatge = useNavigate();
+
   const handleLoginClick = async (e) => {
     e.preventDefault();
     const user = await login(values);
     tokenStorage.add(user.accessToken);
+    setAuthUser(user);
+    navigatge('/test');
   };
 
   return (

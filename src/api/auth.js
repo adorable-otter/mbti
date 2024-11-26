@@ -8,7 +8,7 @@ export const register = async (userData) => {
 };
 
 export const login = async (userData) => {
-  const response = await axios.post(`${API_URL}/login`, userData);
+  const response = await axios.post(`${API_URL}/login?expiresIn=5m`, userData);
   return response.data;
 };
 
