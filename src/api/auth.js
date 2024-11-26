@@ -1,17 +1,18 @@
-import axios from 'axios';
-
-const API_URL = 'https://moneyfulpublicpolicy.co.kr';
+import authAxios from './axiosInstances/authAxios';
 
 export const register = async (userData) => {
-  const response = await axios.post(`${API_URL}/register`, userData);
+  const response = await authAxios.post('/register', userData);
   return response.data;
 };
 
 export const login = async (userData) => {
-  const response = await axios.post(`${API_URL}/login?expiresIn=5m`, userData);
+  const response = await authAxios.post('/login?expiresIn=5m', userData);
   return response.data;
 };
 
-export const getUserProfile = async (token) => {};
+export const getUserProfile = async () => {
+  const response = await authAxios.get('/user');
+  return response.data;
+};
 
 export const updateProfile = async (formData) => {};

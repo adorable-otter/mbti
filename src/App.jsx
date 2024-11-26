@@ -1,12 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 import { reset } from 'styled-reset';
-import Router from './routers/router';
+import { RouterProvider } from 'react-router-dom';
+import router from './routers/router';
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <Router />
+      <RouterProvider router={router}></RouterProvider>
     </>
   );
 }

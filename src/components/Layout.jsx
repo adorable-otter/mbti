@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom';
+import { Link, Outlet, useLoaderData } from 'react-router-dom';
 import styled from 'styled-components';
 import { contentMaxWidth } from '../styles/common';
 
-const Layout = ({ children }) => {
+const Layout = () => {
+  const authUser = useLoaderData();
   return (
     <Wrap>
       <Header>
@@ -11,7 +12,9 @@ const Layout = ({ children }) => {
           <Link to={'/login'}>로그인</Link>
         </Actions>
       </Header>
-      <Main>{children}</Main>
+      <Main>
+        <Outlet context={authUser} />
+      </Main>
     </Wrap>
   );
 };

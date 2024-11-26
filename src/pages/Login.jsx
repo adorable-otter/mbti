@@ -16,6 +16,7 @@ const Login = () => {
     const user = await login(values);
     tokenStorage.add(user.accessToken);
     setAuthUser(user);
+    // 강제로 이동 된 경우 원래 있던 페이지 기억 가능??
     navigatge('/test');
   };
 
@@ -39,7 +40,7 @@ const Login = () => {
         ></Input>
         <Button onClick={handleLoginClick}>로그인</Button>
       </Form>
-      계정이 없으신가요? <Link to={'/signUp'}>회원가입</Link>
+      계정이 없으신가요? <Link to={'/sign-up'}>회원가입</Link>
     </Wrap>
   );
 };

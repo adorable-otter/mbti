@@ -55,7 +55,7 @@ const SignUp = () => {
         ></Input>
         <Button onClick={handleRegisterButtonClick}>회원가입</Button>
       </Form>
-      계정이 없으신가요? <Link to={'/signUp'}>회원가입</Link>
+      계정이 없으신가요? <Link to={'/sign-up'}>회원가입</Link>
     </Wrap>
   );
 };
