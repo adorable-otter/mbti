@@ -20,4 +20,14 @@ authAxios.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
+authAxios.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      tokenStorage.clear();
+    }
+    return Promise.reject(error); // 에러를 다시 던져 호출한 함수에서 추가 처리 가능
+  }
+);
+
 export default authAxios;
