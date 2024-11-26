@@ -1,4 +1,4 @@
-import MbtiTest from '../pages/MbtiTest';
+import TestPage from '../pages/TestPage';
 import ProtectedRoute from './ProtectedRoute';
 
 export const authenticatedOnly = {
@@ -7,7 +7,7 @@ export const authenticatedOnly = {
   children: [
     {
       path: '/test',
-      element: <MbtiTest />,
+      element: <TestPage />,
     },
   ],
 };
