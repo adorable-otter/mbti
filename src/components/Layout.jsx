@@ -1,29 +1,29 @@
-import { Link, Outlet, useLoaderData } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
+import useAuth from '../hooks/useAuth';
 import { contentMaxWidth } from '../styles/common';
 
 const Layout = () => {
-  const authUser = useLoaderData();
+  const { isLoggedIn, logout } = useAuth();
+
   return (
     <Wrap>
       <Header>
         <Actions>
           <Link to={'/'}>home</Link>
-          <Link to={'/login'}>로그인</Link>
+          {isLoggedIn ? (
+            <button onClick={logout}>로그아웃</button>
+          ) : (
+            <Link to={'/login'}>로그인</Link>
+          )}
         </Actions>
       </Header>
       <Main>
-        <Outlet context={authUser} />
+        <Outlet />
       </Main>
     </Wrap>
   );
 };
-
-const Main = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-`;
 
 const Actions = styled.div`
   display: flex;
@@ -42,6 +42,12 @@ const Header = styled.header`
   margin-bottom: 40px;
 `;
 
+const Main = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+`;
+
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -49,7 +55,6 @@ const Wrap = styled.div`
   min-height: 100vh;
   margin: 0;
   background-color: #f5f3f3;
-  /* width: 100%; */
 `;
 
 export default Layout;
