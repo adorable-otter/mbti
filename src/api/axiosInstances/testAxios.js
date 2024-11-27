@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const testAxios = axios.create({
-  baseURL: 'https://moneyfulpublicpolicy.co.kr',
+  baseURL: 'http://localhost:5001/testResults',
   timeout: 5000,
   headers: {
     'Content-Type': 'application/json',

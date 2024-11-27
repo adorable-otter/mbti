@@ -1,3 +1,28 @@
 {
-  "testResults": []
+  "testResults": [
+    {
+      "id": "7093",
+      "userId": "test4321",
+      "nickname": "test4321",
+      "testResult": "ESTJ",
+      "createAt": 1732630054306,
+      "visible": false
+    },
+    {
+      "id": "1703",
+      "userId": "test4321",
+      "nickname": "test4321",
+      "testResult": "ESTJ",
+      "createAt": 1732671090094,
+      "visible": true
+    },
+    {
+      "id": "54ee",
+      "userId": "test4321",
+      "nickname": "test4321",
+      "testResult": "ESTJ",
+      "createAt": 1732681594609,
+      "visible": true
+    }
+  ]
 }

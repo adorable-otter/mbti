@@ -6,13 +6,16 @@ export const register = async (userData) => {
 };
 
 export const login = async (userData) => {
-  const response = await authAxios.post('/login?expiresIn=5m', userData);
+  const response = await authAxios.post('/login?expiresIn=240m', userData);
   return response.data;
 };
 
 export const getUserProfile = async () => {
-  const response = await authAxios.get('/user');
-  return response.data;
+  try {
+    const response = await authAxios.get('/user');
+    return response?.data;
+  } catch (err) {
+  }
 };
 
 export const updateProfile = async (formData) => {};

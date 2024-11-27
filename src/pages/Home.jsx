@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import DescriptionCard from '../components/main/DescriptionCard';
 import { contentMaxWidth } from '../styles/common';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -12,7 +13,9 @@ const Home = () => {
         <DescriptionCard />
         <DescriptionCard />
       </DescriptionCards>
-      <MoveButton>내 성격 알아보러 가기</MoveButton>
+      <Link to={'/test'}>
+        <MoveButton>내 성격 알아보러 가기</MoveButton>
+      </Link>
     </Wrap>
   );
 };
