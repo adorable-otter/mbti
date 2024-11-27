@@ -8,7 +8,7 @@ import useAuthUserStore from '../stores/useAuthUserStore';
 const TestPage = () => {
   const navigate = useNavigate();
   const [result, setResult] = useState(null);
-  const { userId, nickname } = useAuthUserStore((state) => state.authUser);
+  const { id:userId, nickname } = useAuthUserStore((state) => state.authUser);
 
   const handleTestSubmit = async (answers) => {
     const mbtiResult = calculateMBTI(answers);
