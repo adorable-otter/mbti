@@ -25,7 +25,6 @@ const TestResultItem = ({ result }) => {
   const { userId, nickname, testResult, createAt, visible, id } = result;
 
   const handleVisibilityButtonClick = () => {
-    console.log('🚀 ~ handleVisibilityButtonClick ~ id, !visible:', id, !visible);
     mutationForUpdate.mutate({ id, visible: !visible });
   };
 
