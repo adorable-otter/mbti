@@ -12,7 +12,13 @@ const useAuth = () => {
     tokenStorage.clear();
     navigate('/');
   };
-  return { authUser, isLoggedIn, logout };
+
+  const login = (user) => {
+    tokenStorage.add(user.accessToken);
+    setAuthUser(user);
+    navigate('/');
+  };
+  return { authUser, isLoggedIn, logout, login };
 };
 
 export default useAuth;

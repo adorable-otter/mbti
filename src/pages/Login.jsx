@@ -1,23 +1,18 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import useForm from '../hooks/useForm';
 import { Button, Form, Input, Title } from '../styles/authForm';
-import { login } from '../api/auth';
-import { tokenStorage } from '../modules/tokenStorage';
-import useAuthUserStore from '../stores/useAuthUserStore';
+import useAuth from '../hooks/useAuth';
+import { requestLogin } from '../api/auth';
 
 const Login = () => {
   const { values, handleInputChange } = useForm('login');
-  const setAuthUser = useAuthUserStore((state) => state.setAuthUser);
-  const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleLoginClick = async (e) => {
     e.preventDefault();
-    const user = await login(values);
-    tokenStorage.add(user.accessToken);
-    setAuthUser(user);
-    // 강제로 이동 된 경우 원래 있던 페이지 기억 가능??
-    navigate('/test');
+    const user = await requestLogin(values);
+    login(user);
   };
 
   return (

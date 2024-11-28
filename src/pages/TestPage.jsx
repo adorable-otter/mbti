@@ -3,12 +3,13 @@ import TestForm from '../components/TestForm';
 import { calculateMBTI, mbtiDescriptions } from '../utils/mbtiCalculator';
 import { createTestResult } from '../api/testResults';
 import { useNavigate } from 'react-router-dom';
-import useAuthUserStore from '../stores/useAuthUserStore';
+import useAuth from '../hooks/useAuth';
 
 const TestPage = () => {
   const navigate = useNavigate();
   const [result, setResult] = useState(null);
-  const { id:userId, nickname } = useAuthUserStore((state) => state.authUser);
+  const { authUser } = useAuth();
+  const { id: userId, nickname } = authUser;
 
   const handleTestSubmit = async (answers) => {
     const mbtiResult = calculateMBTI(answers);

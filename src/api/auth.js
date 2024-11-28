@@ -5,7 +5,7 @@ export const register = async (userData) => {
   return response.data;
 };
 
-export const login = async (userData) => {
+export const requestLogin = async (userData) => {
   const response = await authAxios.post('/login?expiresIn=240m', userData);
   return response.data;
 };

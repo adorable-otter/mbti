@@ -2,15 +2,14 @@ import { useQuery } from '@tanstack/react-query';
 import { getTestResults } from '../api/testResults';
 import TestResultItem from '../components/TestResultItem';
 import styled from 'styled-components';
-import useAuthUserStore from '../stores/useAuthUserStore';
+import useAuth from '../hooks/useAuth';
 
 const TestResultList = () => {
   const { data: testResults } = useQuery({
     queryKey: ['testResults'],
     queryFn: getTestResults,
   });
-  const authUser = useAuthUserStore((state) => state.authUser);
-
+  const { authUser } = useAuth();
   return (
     <Wrap>
       {testResults
